@@ -1,9 +1,10 @@
 import React from 'react';
+import './Header.css'
 
 function Header(props) {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="Header">
+      <header className="Header-header">
         <p>
           Welcome to Poke React!
       </p>
