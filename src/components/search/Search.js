@@ -27,7 +27,7 @@ function Search(props) {
   const [pokemonList, setPokemonList] = useState([]);
   const [filteredPokemonList, setFilteredPokemonList] = useState([]);
   const [pokemon, setPokemon] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     apiEndpoints.getAllPokemon().then(pokemon => {
@@ -36,21 +36,26 @@ function Search(props) {
   }, []);
 
   useEffect(() => {
-    setLoading(true);
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(async () => {
-      let filteredList = pokemonList.filter(pokemonItem => pokemonItem.name.includes(pokemon));
-      filteredList = filteredList.slice(0, 19);
-      filteredList = await Promise.all(filteredList.map(async pokemon => {
-        const res = await fetch(pokemon.url);
-        const pokemonProps = await res.json();
-        const pokemonSprite = pokemonProps.sprites.front_default;
-        pokemon.sprite = pokemonSprite;
-        return pokemon;
-      }));
-      setFilteredPokemonList(filteredList);
+    if (pokemon.trim() !== '') {
+      setLoading(true);
+      debounceTimer = setTimeout(async () => {
+        let filteredList = pokemonList.filter(pokemonItem => pokemonItem.name.includes(pokemon.toLowerCase()));
+        filteredList = filteredList.slice(0, 19);
+        filteredList = await Promise.all(filteredList.map(async pokemon => {
+          const res = await fetch(pokemon.url);
+          const pokemonProps = await res.json();
+          const pokemonSprite = pokemonProps.sprites.front_default;
+          pokemon.sprite = pokemonSprite;
+          return pokemon;
+        }));
+        setFilteredPokemonList(filteredList);
+        setLoading(false);
+      }, 1000);
+    } else {
       setLoading(false);
-    }, 1000);
+      setFilteredPokemonList([]);
+    }
   }, [pokemonList, pokemon]);
 
   return (
@@ -64,7 +69,7 @@ function Search(props) {
         <SearchBar searchString={pokemon} setPokemon={setPokemon} />
       </section>
       <section>
-        {loading ? <p>Loading...</p> : <PokemonList pokemonList={filteredPokemonList} /> }
+        {loading ? <p>Loading...</p> : <PokemonList pokemonList={filteredPokemonList} />}
       </section>
     </div>
   );
