@@ -1,23 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Search.css';
 
-class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.state = { pokemon: '' };
-  }
+function SearchBar() {
+  const [pokemon, setPokemon] = useState('');
 
-  handleChange(e) {
-    this.setState({ pokemon: e.target.value });
-  }
-
-  render() {
-    const pokemon = this.state.pokemon;
-    return (
-      <input className="Search-Searchbar-input" value={pokemon} onChange={this.handleChange} />
-    )
-  }
+  return (
+    <input className="Search-Searchbar-input" value={pokemon} onChange={(e) => setPokemon(e.target.value)} />
+  )
 }
 
 function Search() {
