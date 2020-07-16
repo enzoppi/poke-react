@@ -69,7 +69,11 @@ function Search(props) {
         <SearchBar searchString={pokemon} setPokemon={setPokemon} />
       </section>
       <section>
-        {loading ? <p>Loading...</p> : <PokemonList pokemonList={filteredPokemonList} />}
+        {loading ? <p>Loading...</p> :
+          filteredPokemonList.length ?
+            <PokemonList pokemonList={filteredPokemonList} /> :
+            pokemon.length ? <p>No Pokémon found</p> : null
+        }
       </section>
     </div>
   );
