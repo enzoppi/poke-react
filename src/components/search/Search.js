@@ -5,10 +5,14 @@ import apiEndpoints from '../../services/PokeApi';
 let debounceTimer = null;
 
 function PokemonList(props) {
+  const [isShown, setIsShown] = useState(false);
+
   return (
     <ul className="PokemonList">
       {props.pokemonList.map((pokemon) => {
-        return <li className="PokemonList-Item" key={pokemon.name}>
+        return <li className="PokemonList-Item" key={pokemon.name} 
+        onMouseEnter={() => setTimeout(() => setIsShown(true), 500)} onMouseLeave={() => setIsShown(false)}>
+          {isShown && <div> info goes here </div>}
           <img src={pokemon.sprite} alt={pokemon.name} />
           {pokemon.name}
         </li>
