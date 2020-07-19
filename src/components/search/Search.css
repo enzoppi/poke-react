@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--main-text-color);
 }
 
 .Search-Searchbar {
@@ -24,11 +24,11 @@
 }
 
 .Search-Searchbar-input {
-  border: 1px solid black;
+  border: 1px solid var(--main-border-color);
   border-radius: 15px;
   border-width: 0 0 2px 0;
   background-color: var(--tertiary-bg-color);
-  color: white;
+  color: var(--main-text-color);
   padding: 7px 15px 7px 30px;    
   transition: all 0.2s ease-in-out;
   width: 20%;
