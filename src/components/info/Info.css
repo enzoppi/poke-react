@@ -4,6 +4,7 @@
     position: absolute;
     padding: 0 5px;
     border-radius: 6px;
+    border: 2px solid var(--main-text-color);
     width: 100px;
     top: 35%;
     left: 100%;
@@ -19,7 +20,7 @@
 
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
-    border-right: 8px solid var(--main-bg-color);
+    border-right: 8px solid var(--main-text-color);
     left: -8px;
 
     top: 65px;
