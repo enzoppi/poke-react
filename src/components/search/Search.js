@@ -29,18 +29,7 @@ function Search(props) {
     if (pokemon.trim() !== '') {
       setLoading(true);
       debounceTimer = setTimeout(async () => {
-        let filteredList = pokemonList.filter(pokemonItem => pokemonItem.name.includes(pokemon.toLowerCase()));
-        filteredList = filteredList.slice(0, 19);
-        filteredList = await Promise.all(filteredList.map(async pokemon => {
-          const res = await fetch(pokemon.url);
-          const pokemonProps = await res.json();
-          const pokemonSprite = pokemonProps.sprites.front_default;
-          const pokemonInfo = (
-            <div>
-              <h4>Types:</h4>
-              {pokemonProps.types.map(type => <p>{type.type.name}</p>)}
-            </div>
-            );
+        let filteredLis
           pokemon.sprite = pokemonSprite || placeHolderImage;
           pokemon.info = pokemonInfo;
           return pokemon;
