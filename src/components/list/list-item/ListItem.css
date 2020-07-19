@@ -1,0 +1,10 @@
+.List-Item {
+  padding-bottom: 5px;
+  text-transform: capitalize;
+  max-width: 200px;
+  position: relative;
+}
+
+.List-Item-title {
+  vertical-align: middle;
+}

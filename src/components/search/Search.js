@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './Search.css';
+import React, { useEffect, useState } from 'react';
 import apiEndpoints from '../../services/PokeApi';
-import List from './list/List';
+import List from '../list/List';
+import './Search.css';
 
 let debounceTimer = null;
-
-function PokemonList(props) {
-
-  return (
-    <List list={props.pokemonList} />
-  )
-}
 
 function SearchBar(props) {
   return (
@@ -41,7 +34,14 @@ function Search(props) {
           const res = await fetch(pokemon.url);
           const pokemonProps = await res.json();
           const pokemonSprite = pokemonProps.sprites.front_default;
+          const pokemonInfo = (
+            <div>
+              <h4>Types:</h4>
+              {pokemonProps.types.map(type => <p>{type.type.name}</p>)}
+            </div>
+            );
           pokemon.sprite = pokemonSprite;
+          pokemon.info = pokemonInfo;
           return pokemon;
         }));
         setFilteredPokemonList(filteredList);
@@ -66,7 +66,7 @@ function Search(props) {
       <section>
         {loading ? <p>Loading...</p> :
           filteredPokemonList.length ?
-            <PokemonList pokemonList={filteredPokemonList} /> :
+            <List list={filteredPokemonList} /> :
             pokemon.length ? <p>No Pokémon found</p> : null
         }
       </section>

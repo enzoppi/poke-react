@@ -4,7 +4,9 @@ import './Info.css';
 function Info(props){
     return(
         <div className="Info">
-            here goes info
+            {props.children}
         </div>
     )
 }
+
+export default Info;
