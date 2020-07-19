@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './Search.css';
 import apiEndpoints from '../../services/PokeApi';
+import List from './list/List';
 
 let debounceTimer = null;
 
 function PokemonList(props) {
-  const [isShown, setIsShown] = useState(false);
 
   return (
-    <ul className="PokemonList">
-      {props.pokemonList.map((pokemon) => {
-        return <li className="PokemonList-Item" key={pokemon.name} 
-        onMouseEnter={() => setTimeout(() => setIsShown(true), 500)} onMouseLeave={() => setIsShown(false)}>
-          {isShown && <div> info goes here </div>}
-          <img src={pokemon.sprite} alt={pokemon.name} />
-          {pokemon.name}
-        </li>
-      })}
-    </ul>
+    <List list={props.pokemonList} />
   )
 }
 

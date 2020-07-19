@@ -4,7 +4,7 @@ import './Info.css';
 function Info(props){
     return(
         <div className="Info">
-            {props.children}
+            here goes info
         </div>
     )
 }
