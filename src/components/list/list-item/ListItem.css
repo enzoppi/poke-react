@@ -5,6 +5,11 @@
   position: relative;
 }
 
+.List-Item-sprite {
+  height: 96px;
+  width: 96px;
+}
+
 .List-Item-title {
   vertical-align: middle;
 }

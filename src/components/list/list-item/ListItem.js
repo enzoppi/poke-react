@@ -19,7 +19,7 @@ function ListItem(props) {
   return <li className="List-Item" key={props.item.name}
     onMouseEnter={showItem} onMouseLeave={hideItem}>
     {isShown && <Info> {props.item.info} </Info>}
-    <img src={props.item.sprite} alt={props.item.name} />
+    <img className="List-Item-sprite" src={props.item.sprite} alt={props.item.name} />
     <p className="List-Item-title">{props.item.name}</p>
   </li>
 }

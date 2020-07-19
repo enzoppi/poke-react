@@ -24,6 +24,7 @@ function Search(props) {
   }, []);
 
   useEffect(() => {
+    const placeHolderImage = require('../../assets/pokeball.png')
     clearTimeout(debounceTimer);
     if (pokemon.trim() !== '') {
       setLoading(true);
@@ -40,7 +41,7 @@ function Search(props) {
               {pokemonProps.types.map(type => <p>{type.type.name}</p>)}
             </div>
             );
-          pokemon.sprite = pokemonSprite;
+          pokemon.sprite = pokemonSprite || placeHolderImage;
           pokemon.info = pokemonInfo;
           return pokemon;
         }));
