@@ -1,0 +1,9 @@
+.List {
+  list-style-type: none;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 60vh;
+  align-items: center;
+}

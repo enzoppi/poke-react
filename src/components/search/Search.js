@@ -1,21 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './Search.css';
+import React, { useEffect, useState } from 'react';
 import apiEndpoints from '../../services/PokeApi';
+import List from '../list/List';
+import './Search.css';
 
 let debounceTimer = null;
-
-function PokemonList(props) {
-  return (
-    <ul className="PokemonList">
-      {props.pokemonList.map((pokemon) => {
-        return <li className="PokemonList-Item" key={pokemon.name}>
-          <img src={pokemon.sprite} alt={pokemon.name} />
-          {pokemon.name}
-        </li>
-      })}
-    </ul>
-  )
-}
 
 function SearchBar(props) {
   return (
@@ -36,6 +24,7 @@ function Search(props) {
   }, []);
 
   useEffect(() => {
+    const placeHolderImage = require('../../assets/pokeball.png')
     clearTimeout(debounceTimer);
     if (pokemon.trim() !== '') {
       setLoading(true);
@@ -46,7 +35,14 @@ function Search(props) {
           const res = await fetch(pokemon.url);
           const pokemonProps = await res.json();
           const pokemonSprite = pokemonProps.sprites.front_default;
-          pokemon.sprite = pokemonSprite;
+          const pokemonInfo = (
+            <div>
+              <h4>Types:</h4>
+              {pokemonProps.types.map(type => <p>{type.type.name}</p>)}
+            </div>
+            );
+          pokemon.sprite = pokemonSprite || placeHolderImage;
+          pokemon.info = pokemonInfo;
           return pokemon;
         }));
         setFilteredPokemonList(filteredList);
@@ -71,7 +67,7 @@ function Search(props) {
       <section>
         {loading ? <p>Loading...</p> :
           filteredPokemonList.length ?
-            <PokemonList pokemonList={filteredPokemonList} /> :
+            <List list={filteredPokemonList} /> :
             pokemon.length ? <p>No Pokémon found</p> : null
         }
       </section>

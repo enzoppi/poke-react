@@ -1,0 +1,15 @@
+.List-Item {
+  padding-bottom: 5px;
+  text-transform: capitalize;
+  max-width: 200px;
+  position: relative;
+}
+
+.List-Item-sprite {
+  height: 96px;
+  width: 96px;
+}
+
+.List-Item-title {
+  vertical-align: middle;
+}
