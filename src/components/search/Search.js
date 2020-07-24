@@ -56,21 +56,21 @@ function Search(props) {
 
   return (
     <div className="Search">
-      <section className="Search-Searchbar">
+      <div className="Search-Searchbar">
         <h2 className="Search-header">
           <p>
             Search for Pokémon!
           </p>
         </h2>
         <SearchBar searchString={pokemon} setPokemon={setPokemon} />
-      </section>
-      <section>
+      </div>
+      <div>
         {loading ? <p>Loading...</p> :
           filteredPokemonList.length ?
             <List list={filteredPokemonList} /> :
             pokemon.length ? <p>No Pokémon found</p> : null
         }
-      </section>
+      </div>
     </div>
   );
 }

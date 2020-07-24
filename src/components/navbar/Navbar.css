@@ -1,0 +1,19 @@
+.Navbar-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Navbar-list-item {
+  text-decoration: none;
+  padding: 0 10px;
+}
+
+.Navbar-NavLink {
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+.active-route {
+  border-bottom: 1px solid var(--accent-color);
+}

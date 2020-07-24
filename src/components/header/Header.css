@@ -1,9 +1,20 @@
-.Header-header {
-  background-color: var(--main-bg-color);;
-  min-height: 20vh;
+.Header {
+  background-color: var(--main-bg-color);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  width: 100%;
+}
+
+.Header-header {
+  width: 100%;
+}
+
+.Header-topbar {
+  height: 60%;
+}
+
+.Header-children {
+  height: 40%;
 }

@@ -5,11 +5,13 @@ function Header(props) {
   return (
     <div className="Header">
       <header className="Header-header">
-        <p>
+        <p className="Header-topbar">
           Welcome to Poke React!
-      </p>
+        </p>
+        <div className="Header-children">
+          {props.children}
+        </div>
       </header>
-      {props.children}
     </div>
   );
 }

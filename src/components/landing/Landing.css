@@ -1,0 +1,21 @@
+.active-route {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.Layout {
+  width: 100vw;
+  height: 100vh;
+}
+
+.Header {
+  height: 20vh;
+}
+
+.Section {
+  background-color: var(--secondary-bg-color);
+  height: 75vh;
+}
+
+.Footer {
+  height: 5vh;
+}

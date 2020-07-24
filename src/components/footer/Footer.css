@@ -1,0 +1,10 @@
+.Footer-footer {
+  background-color: white;
+  color: black;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(2px + 1vmin);
+}

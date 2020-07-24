@@ -1,7 +1,6 @@
 .Search {
-  background-color: var(--secondary-bg-color);;
   text-align: center;
-  min-height: 80vh;
+  height: 100%;
 }
 
 .Search-header {
