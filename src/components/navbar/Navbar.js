@@ -8,7 +8,7 @@ function Navbar() {
       <nav>
         <ul className="Navbar-list">
           <li key="home" className="Navbar-list-item">
-            <NavLink to="/home" activeClassName="active-route" className="Navbar-NavLink">
+            <NavLink to="/pokemon" activeClassName="active-route" className="Navbar-NavLink">
               Pokemon
             </NavLink>
           </li>

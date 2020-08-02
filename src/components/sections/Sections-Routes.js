@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Abilities from '../sections/abilities/Abilities';
 import Home from '../sections/home/Home';
 
@@ -7,12 +7,16 @@ function SectionsRoutes() {
   return (
     <div>
       <Switch>
-        <Route path="/home">
+        <Route path="/pokemon">
           <Home />
         </Route>
         <Route path="/abilities">
           <Abilities />
         </Route>
+        {/* <Route path="/">
+          <Home />
+        </Route> */}
+        <Redirect to="/pokemon" />
       </Switch>
     </div>
   );
