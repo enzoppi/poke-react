@@ -3,6 +3,7 @@
   color: black;
   height: 100%;
   display: flex;
+  height: 5vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
